@@ -260,94 +260,108 @@
       color: var(--mattle-gray);
     }
  
-    /* FEATURED CARD */
-    .feat-card {
+    /* BOOK GRID */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+ 
+    .book-card {
       background: #fff;
       border: 1px solid var(--light-gray);
       border-radius: 5px;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      margin-bottom: 1.4rem;
+      display: flex;
+      flex-direction: column;
       cursor: pointer;
       transition: box-shadow 0.2s, transform 0.2s;
-      animation: fadeUp 0.4s 0.1s ease both;
+      animation: fadeUp 0.4s ease both;
     }
-    .feat-card:hover {
+    .book-card:nth-child(1) { animation-delay: 0.05s; }
+    .book-card:nth-child(2) { animation-delay: 0.1s; }
+    .book-card:nth-child(3) { animation-delay: 0.15s; }
+    .book-card:nth-child(4) { animation-delay: 0.2s; }
+    .book-card:nth-child(5) { animation-delay: 0.25s; }
+    .book-card:nth-child(6) { animation-delay: 0.3s; }
+    .book-card:nth-child(7) { animation-delay: 0.35s; }
+    .book-card:nth-child(8) { animation-delay: 0.4s; }
+    .book-card:nth-child(9) { animation-delay: 0.45s; }
+    .book-card:nth-child(10) { animation-delay: 0.5s; }
+    .book-card:nth-child(11) { animation-delay: 0.55s; }
+    .book-card:nth-child(12) { animation-delay: 0.6s; }
+ 
+    .book-card:hover {
       box-shadow: 0 4px 20px rgba(36,91,255,0.12);
       transform: translateY(-2px);
     }
  
-    .feat-body { padding: 1.2rem 1.4rem; }
- 
-    .ctype {
-      display: inline-block;
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.15rem 0.55rem;
-      border-radius: 2px;
-      margin-bottom: 0.6rem;
-    }
-    .t-book    { background: #e8f0ff; color: #192890; }
-    .t-journal { background: #e2faf5; color: #0a6b58; }
-    .t-report  { background: #f0eeff; color: #4a35a0; }
-    .t-media   { background: #fff2e8; color: #a04818; }
- 
-    .feat-body h2 {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      line-height: 1.22;
-      color: var(--state-gray);
-      margin-bottom: 0.3rem;
-    }
- 
-    .feat-author {
-      font-size: 0.76rem;
-      color: var(--mattle-gray);
-      font-style: italic;
-      margin-bottom: 0.6rem;
-    }
- 
-    .feat-excerpt {
-      font-size: 0.82rem;
-      color: #4a5a62;
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-    }
- 
-    .cmeta {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 0.68rem;
-      color: var(--silver-gray);
-      flex-wrap: wrap;
-    }
-    .cdot { width: 2px; height: 2px; border-radius: 50%; background: var(--silver-gray); }
- 
-    .view-link {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--innovation-blue);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: gap 0.2s;
-    }
-    .view-link:hover { gap: 0.5rem; }
- 
-    .feat-thumb {
+    .book-thumb {
+      width: 100%;
+      height: 180px;
       background: linear-gradient(140deg, #192890 0%, #245bff 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.8rem;
+      overflow: hidden;
+    }
+ 
+    .book-thumb img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+    }
+ 
+    .book-body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+ 
+    .book-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--state-gray);
+      margin-bottom: 0.5rem;
+    }
+ 
+    .book-author {
+      font-size: 0.75rem;
+      color: var(--mattle-gray);
+      font-style: italic;
+      margin-bottom: 0.7rem;
+    }
+ 
+    .book-desc {
+      font-size: 0.75rem;
+      color: #4a5a62;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+      flex-grow: 1;
+    }
+ 
+    .book-links {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      flex-wrap: wrap;
+    }
+ 
+    .book-links a {
+      color: var(--innovation-blue);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.3rem 0.6rem;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+ 
+    .book-links a:hover {
+      background: rgba(36,91,255,0.1);
     }
  
     /* MONTH SECTIONS */
@@ -375,8 +389,7 @@
     @media (max-width: 860px) {
       .hero { height: auto; padding: 0.6rem 1rem; flex-wrap: wrap; }
       .hero-right { display: none; }
-      .feat-card { grid-template-columns: 1fr; }
-      .feat-thumb { min-height: 100px; }
+      .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
       .header-nav { display: none; }
       .isb-label { display: none; }
     }
@@ -438,22 +451,165 @@
     <div class="msec active" id="m-apr">
       <div class="sec-hd">
         <div class="sec-title">Featured Arrival — April 2026</div>
-        <div class="sec-count">Highlighted pick</div>
+        <div class="sec-count">12 new titles</div>
       </div>
  
-      <div class="feat-card">
-        <div class="feat-body">
-          <span class="ctype t-book">Book</span>
-          <h2>The Art of Strategic Leadership in Emerging Markets</h2>
-          <div class="feat-author">by Ramesh Krishnamurthy &amp; Anita Desai</div>
-          <p class="feat-excerpt">A comprehensive guide examining strategic leadership frameworks for high-growth emerging economies. Drawing on case studies from India, Brazil, and Southeast Asia, this book bridges theory and practice for the modern business leader.</p>
-          <div class="cmeta">
-            <span>Added Apr 2, 2026</span><span class="cdot"></span>
-            <span>Management</span><span class="cdot"></span>
-            <a class="view-link" href="#">View in Catalogue →</a>
+      <div class="book-grid">
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/01.jpg" alt="The Disinterested Witness"/></div>
+          <div class="book-body">
+            <div class="book-title">The Disinterested Witness: A Fragment of Advaita Vedanta Phenomenology</div>
+            <div class="book-author">Gupta, Bina</div>
+            <p class="book-desc">A comparative study of Advaita Vedanta and Western philosophy, focusing on consciousness and perception.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118239&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/s?k=The+Disinterested+Witness+Bina+Gupta" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
-        <div class="feat-thumb">📘</div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/02.jpg" alt="Hooked"/></div>
+          <div class="book-body">
+            <div class="book-title">Hooked</div>
+            <div class="book-author">Yuzuki, Asako</div>
+            <p class="book-desc">A story of loneliness, obsession, and emotional dependence shaped by social media illusions.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118244&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/Hooked-instant-Sunday-bestseller-award-winning/dp/0008815410" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/03.jpg" alt="The Groundbreaker"/></div>
+          <div class="book-body">
+            <div class="book-title">The Groundbreaker: Risks, Rewards, and Lessons from a Legendary Entrepreneur</div>
+            <div class="book-author">Rekhi, Kanwal</div>
+            <p class="book-desc">A business memoir on entrepreneurial risk, resilience, leadership, and lessons learned.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118213&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/Groundbreaker-Rewards-Lessons-Legendary-Entrepreneur/dp/9373078275" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/04.jpg" alt="Every Last Girl"/></div>
+          <div class="book-body">
+            <div class="book-title">Every Last Girl: A Journey to Educate India's Forgotten Daughters</div>
+            <div class="book-author">Husian, Safeena</div>
+            <p class="book-desc">An inspiring account of efforts to educate underprivileged girls and the power of learning.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118246&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/s?k=Every+Last+Girl+Safeena+Husain" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/05.jpg" alt="Broken Rung"/></div>
+          <div class="book-body">
+            <div class="book-title">Broken Rung: When the Career Ladder Breaks for Women and How They Can Succeed</div>
+            <div class="book-author">Ellingrud, Kweilin</div>
+            <p class="book-desc">Examines barriers women face in career growth and offers practical strategies for advancement.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:117598&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/s?k=The+Broken+Rung+Kweilin+Ellingrud" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/06.jpg" alt="India Innovates"/></div>
+          <div class="book-body">
+            <div class="book-title">India Innovates: Technological Sovereignty in a Weaponized World</div>
+            <div class="book-author">Shrama, Pranjal</div>
+            <p class="book-desc">Explores India's technological self-reliance, innovation strategy, and global role.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118243&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/s?k=India+Innovates+Pranjal+Sharma" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/07.jpg" alt="Inspire"/></div>
+          <div class="book-body">
+            <div class="book-title">Inspire: The Universal Path for Leading Yourself and Others</div>
+            <div class="book-author">Galinsky, Adam</div>
+            <p class="book-desc">A practical guide to leadership, influence, self-awareness, and inspiring others with purpose.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118185&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/Inspire-Universal-Leading-Yourself-Others-ebook/dp/B0D3CCHW45" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/08.jpg" alt="Lights Out Minds On"/></div>
+          <div class="book-body">
+            <div class="book-title">Lights Out, Minds On: The Psychology Of Speed and the Human Stories Behind Formula 1</div>
+            <div class="book-author">Awasthi, Priyanka</div>
+            <p class="book-desc">Explores the psychology, focus, and resilience behind Formula 1 performance.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118245&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/s?k=Lights+Out+Minds+On+Priyanka+Awasthi" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/09.jpg" alt="The Midnight Library"/></div>
+          <div class="book-body">
+            <div class="book-title">The Midnight Library</div>
+            <div class="book-author">Roy, Deblina</div>
+            <p class="book-desc">A reflective story about alternate life choices, regret, second chances, and finding meaning.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118255&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/Midnight-Library-Matt-Haig/dp/1786892707" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/10.jpg" alt="World's Best Girlfriend"/></div>
+          <div class="book-body">
+            <div class="book-title">World's Best Girlfriend</div>
+            <div class="book-author">Datta, Durjoy</div>
+            <p class="book-desc">A contemporary romance about love, trust, emotional conflict, and relationship challenges.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118253&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/s?k=World%27s+Best+Girlfriend+Durjoy+Datta" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/11.jpg" alt="12 Years My Messed-up Love Story"/></div>
+          <div class="book-body">
+            <div class="book-title">12 Years: My Messed-up Love Story</div>
+            <div class="book-author">Bhagat, Chetan</div>
+            <p class="book-desc">A love story about misunderstandings, heartbreak, personal growth, and long-term bonds.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118254&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/12-Years-Messed-up-Love-Story-ebook/dp/B0FNXDTXQC" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-thumb"><img src="https://isbhydmoh.sharepoint.com/sites/atrium/Departments/LRC/PublishingImages/New_Arrrivals_Hyd_2026-27/April2026/12.jpg" alt="Prescription for Excellence"/></div>
+          <div class="book-body">
+            <div class="book-title">Prescription for Excellence: Leadership Lessons for Creating a World-Class Customer Experience from UCLA Health System</div>
+            <div class="book-author">Michelli, Joseph A</div>
+            <p class="book-desc">Leadership lessons on customer experience, patient-centered care, and continuous improvement.</p>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118252&fromLocationLink=false&theme=isb" target="_blank">View in OPAC</a>
+              <a href="https://www.amazon.in/Prescription-Excellence-Leadership-Creating-Experience/dp/0071773541" target="_blank">Amazon</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
  
