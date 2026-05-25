@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LRC New Arrivals — ISB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --innovation-blue: #245bff;
+      --legacy-blue:     #192890;
+      --future-green:    #80edd9;
+      --state-gray:      #2e3b42;
+      --mattle-gray:     #5d6f7a;
+      --silver-gray:     #95a9b4;
+      --light-gray:      #e6ebee;
+      --ivory:           #f4f8fa;
+    }
+ 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      background: var(--ivory);
+      color: var(--state-gray);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+    }
+ 
+    /* ── HEADER — compact ~44px ── */
+    header {
+      background: var(--legacy-blue);
+      height: 44px;
+      padding: 0 clamp(1rem, 3vw, 2.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 6px rgba(25,40,144,0.28);
+    }
+ 
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+ 
+    .site-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+ 
+    .site-sub {
+      font-size: 0.56rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+ 
+    .hdivider {
+      width: 1px;
+      height: 20px;
+      background: rgba(255,255,255,0.2);
+    }
+ 
+    .header-nav a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-left: 1rem;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: #fff; }
+ 
+    /* ISB Logo — top right, compact */
+    .isb-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+ 
+    .isb-badge {
+      background: #fff;
+      border-radius: 3px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+ 
+    .isb-badge span {
+      font-family: 'Source Serif 4', serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--legacy-blue);
+      letter-spacing: 0.03em;
+    }
+ 
+    .isb-label .isb-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+ 
+    .isb-label .isb-full {
+      font-size: 0.52rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+ 
+    /* ── HERO BANNER — compact ~48px ── */
+    .hero {
+      background: var(--innovation-blue);
+      padding: 0 clamp(1rem, 3vw, 2.5rem);
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+ 
+    .hero-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+ 
+    .hero-eyebrow {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--future-green);
+    }
+ 
+    .hero-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+ 
+    .hero-title em {
+      font-style: italic;
+      color: var(--future-green);
+    }
+ 
+    .hero-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(255,255,255,0.2);
+    }
+ 
+    .hero-desc {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      max-width: 360px;
+      line-height: 1.4;
+    }
+ 
+    .hero-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-shrink: 0;
+    }
+ 
+    .hstat {
+      text-align: right;
+    }
+ 
+    .hstat-n {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--future-green);
+      line-height: 1;
+    }
+ 
+    .hstat-l {
+      font-size: 0.52rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+ 
+    /* ── MONTH TABS ── */
+    .month-nav {
+      background: var(--state-gray);
+      display: flex;
+      padding: 0 clamp(1rem, 3vw, 2.5rem);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .month-nav::-webkit-scrollbar { display: none; }
+ 
+    .mtab {
+      padding: 0.65rem 1.1rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.42);
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+      user-select: none;
+    }
+    .mtab:hover { color: rgba(255,255,255,0.8); }
+    .mtab.active { color: var(--future-green); border-bottom-color: var(--future-green); }
+ 
+    /* ── LAYOUT ── */
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem clamp(1rem, 3vw, 2.5rem);
+    }
+ 
+    /* SECTION HEADER */
+    .sec-hd {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--innovation-blue);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+ 
+    .sec-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--legacy-blue);
+    }
+ 
+    .sec-count {
+      font-size: 0.68rem;
+      color: var(--mattle-gray);
+    }
+ 
+    /* FEATURED CARD */
+    .feat-card {
+      background: #fff;
+      border: 1px solid var(--light-gray);
+      border-radius: 5px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      margin-bottom: 1.4rem;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.2s;
+      animation: fadeUp 0.4s 0.1s ease both;
+    }
+    .feat-card:hover {
+      box-shadow: 0 4px 20px rgba(36,91,255,0.12);
+      transform: translateY(-2px);
+    }
+ 
+    .feat-body { padding: 1.2rem 1.4rem; }
+ 
+    .ctype {
+      display: inline-block;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.55rem;
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+    }
+    .t-book    { background: #e8f0ff; color: #192890; }
+    .t-journal { background: #e2faf5; color: #0a6b58; }
+    .t-report  { background: #f0eeff; color: #4a35a0; }
+    .t-media   { background: #fff2e8; color: #a04818; }
+ 
+    .feat-body h2 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.22;
+      color: var(--state-gray);
+      margin-bottom: 0.3rem;
+    }
+ 
+    .feat-author {
+      font-size: 0.76rem;
+      color: var(--mattle-gray);
+      font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+ 
+    .feat-excerpt {
+      font-size: 0.82rem;
+      color: #4a5a62;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+ 
+    .cmeta {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.68rem;
+      color: var(--silver-gray);
+      flex-wrap: wrap;
+    }
+    .cdot { width: 2px; height: 2px; border-radius: 50%; background: var(--silver-gray); }
+ 
+    .view-link {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--innovation-blue);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+    .view-link:hover { gap: 0.5rem; }
+ 
+    .feat-thumb {
+      background: linear-gradient(140deg, #192890 0%, #245bff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+    }
+ 
+    /* MONTH SECTIONS */
+    .msec { display: none; }
+    .msec.active { display: block; }
+ 
+    /* FOOTER */
+    footer {
+      background: var(--state-gray);
+      padding: 1rem clamp(1rem, 3vw, 2.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1.5rem;
+    }
+    footer span { color: rgba(255,255,255,0.7); }
+ 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    @media (max-width: 860px) {
+      .hero { height: auto; padding: 0.6rem 1rem; flex-wrap: wrap; }
+      .hero-right { display: none; }
+      .feat-card { grid-template-columns: 1fr; }
+      .feat-thumb { min-height: 100px; }
+      .header-nav { display: none; }
+      .isb-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- HEADER (~44px) -->
+<header>
+  <div class="header-left">
+    <div>
+      <div class="site-title">Learning Resource Centre</div>
+      <div class="site-sub">Indian School of Business</div>
+    </div>
+    <div class="hdivider"></div>
+    <nav class="header-nav">
+      <a href="#">Home</a>
+      <a href="#">Catalogue</a>
+      <a href="#">E-Resources</a>
+      <a href="#">Archive</a>
+    </nav>
+  </div>
+ 
+  <!-- ISB Logo — top right -->
+  <a href="#" class="isb-logo">
+    <div class="isb-badge"><span>ISB</span></div>
+    <div class="isb-label">
+      <div class="isb-name">ISB</div>
+      <div class="isb-full">Indian School of Business</div>
+    </div>
+  </a>
+</header>
+ 
+<!-- HERO BANNER (~48px) -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">LRC</div>
+    <div class="hero-divider"></div>
+    <div class="hero-title">New <em>Arrivals</em></div>
+    <div class="hero-divider"></div>
+    <div class="hero-desc">Latest books, journals &amp; resources added to the ISB LRC — curated monthly.</div>
+  </div>
+  <div class="hero-right">
+    <div class="hstat"><div class="hstat-n">24</div><div class="hstat-l">Titles</div></div>
+    <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">Categories</div></div>
+    <div class="hstat"><div class="hstat-n">Apr '26</div><div class="hstat-l">Edition</div></div>
+  </div>
+</section>
+ 
+<!-- MONTH TABS -->
+<div class="month-nav">
+  <div class="mtab" data-m="jan">Jan 2026</div>
+  <div class="mtab" data-m="feb">Feb 2026</div>
+  <div class="mtab" data-m="mar">Mar 2026</div>
+  <div class="mtab active" data-m="apr">Apr 2026</div>
+  <div class="mtab" data-m="may">May 2026</div>
+  <div class="mtab" data-m="jun">Jun 2026</div>
+</div>
+ 
+<!-- MAIN -->
+<div class="wrap">
+  <main>
+ 
+    <!-- APRIL -->
+    <div class="msec active" id="m-apr">
+      <div class="sec-hd">
+        <div class="sec-title">Featured Arrival — April 2026</div>
+        <div class="sec-count">Highlighted pick</div>
+      </div>
+ 
+      <div class="feat-card">
+        <div class="feat-body">
+          <span class="ctype t-book">Book</span>
+          <h2>The Art of Strategic Leadership in Emerging Markets</h2>
+          <div class="feat-author">by Ramesh Krishnamurthy &amp; Anita Desai</div>
+          <p class="feat-excerpt">A comprehensive guide examining strategic leadership frameworks for high-growth emerging economies. Drawing on case studies from India, Brazil, and Southeast Asia, this book bridges theory and practice for the modern business leader.</p>
+          <div class="cmeta">
+            <span>Added Apr 2, 2026</span><span class="cdot"></span>
+            <span>Management</span><span class="cdot"></span>
+            <a class="view-link" href="#">View in Catalogue →</a>
+          </div>
+        </div>
+        <div class="feat-thumb">📘</div>
+      </div>
+    </div>
+ 
+    <!-- JAN -->
+    <div class="msec" id="m-jan">
+      <div class="sec-hd"><div class="sec-title">New Arrivals — January 2026</div></div>
+      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">January 2026 content.</p>
+    </div>
+ 
+    <!-- FEB -->
+    <div class="msec" id="m-feb">
+      <div class="sec-hd"><div class="sec-title">New Arrivals — February 2026</div></div>
+      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">February 2026 content.</p>
+    </div>
+ 
+    <!-- MAR -->
+    <div class="msec" id="m-mar">
+      <div class="sec-hd"><div class="sec-title">New Arrivals — March 2026</div></div>
+      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">March 2026 content.</p>
+    </div>
+ 
+    <!-- MAY -->
+    <div class="msec" id="m-may">
+      <div class="sec-hd"><div class="sec-title">New Arrivals — May 2026</div><div class="sec-count">Coming soon</div></div>
+      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">May 2026 arrivals will be published at the start of the month.</p>
+    </div>
+ 
+    <!-- JUN -->
+    <div class="msec" id="m-jun">
+      <div class="sec-hd"><div class="sec-title">New Arrivals — June 2026</div><div class="sec-count">Coming soon</div></div>
+      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">June 2026 arrivals have not yet been published.</p>
+    </div>
+ 
+  </main>
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <div>© 2026 Indian School of Business · Learning Resource Centre</div>
+  <span>Hyderabad · Mohali</span>
+</footer>
+ 
+<script>
+  document.querySelectorAll('.mtab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.mtab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.msec').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      const sec = document.getElementById('m-' + tab.dataset.m);
+      if (sec) sec.classList.add('active');
+    });
+  });
+</script>
+ 
+</body>
+</html>
