@@ -223,6 +223,10 @@
       white-space: nowrap;
       transition: color 0.2s, border-color 0.2s;
       user-select: none;
+      display: none;
+    }
+    .mtab.visible {
+      display: block;
     }
     .mtab:hover { color: rgba(255,255,255,0.8); }
     .mtab.active { color: var(--future-green); border-bottom-color: var(--future-green); }
@@ -424,12 +428,7 @@
  
 <!-- MONTH TABS -->
 <div class="month-nav">
-  <div class="mtab" data-m="jan">Jan 2026</div>
-  <div class="mtab" data-m="feb">Feb 2026</div>
-  <div class="mtab" data-m="mar">Mar 2026</div>
-  <div class="mtab active" data-m="apr">Apr 2026</div>
-  <div class="mtab" data-m="may">May 2026</div>
-  <div class="mtab" data-m="jun">Jun 2026</div>
+  <div class="mtab visible active" data-m="apr">Apr 2026</div>
 </div>
  
 <!-- MAIN -->
@@ -457,36 +456,6 @@
         </div>
         <div class="feat-thumb">📘</div>
       </div>
-    </div>
- 
-    <!-- JAN -->
-    <div class="msec" id="m-jan">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — January 2026</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">January 2026 content.</p>
-    </div>
- 
-    <!-- FEB -->
-    <div class="msec" id="m-feb">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — February 2026</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">February 2026 content.</p>
-    </div>
- 
-    <!-- MAR -->
-    <div class="msec" id="m-mar">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — March 2026</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">March 2026 content.</p>
-    </div>
- 
-    <!-- MAY -->
-    <div class="msec" id="m-may">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — May 2026</div><div class="sec-count">Coming soon</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">May 2026 arrivals will be published at the start of the month.</p>
-    </div>
- 
-    <!-- JUN -->
-    <div class="msec" id="m-jun">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — June 2026</div><div class="sec-count">Coming soon</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">June 2026 arrivals have not yet been published.</p>
     </div>
  
   </main>
