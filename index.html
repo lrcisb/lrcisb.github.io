@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LRC New Arrivals — ISB</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --innovation-blue: #245bff;
@@ -25,6 +25,8 @@
       font-family: 'Source Sans 3', sans-serif;
       font-weight: 400;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ── HEADER — compact ~44px ── */
@@ -48,250 +50,170 @@
     }
 
     .site-title {
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.8rem;
-      font-weight: 600;
       color: #fff;
-      letter-spacing: 0.02em;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 600;
+      letter-spacing: -0.5px;
     }
 
-    .site-sub {
-      font-size: 0.56rem;
-      color: rgba(255,255,255,0.5);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 300;
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
     }
 
-    .hdivider {
-      width: 1px;
-      height: 20px;
-      background: rgba(255,255,255,0.2);
-    }
-
-    .header-nav a {
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      margin-left: 1rem;
-      transition: color 0.2s;
-    }
-    .header-nav a:hover { color: #fff; }
-
-    /* ISB Logo — top right, compact */
     .isb-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-    }
-
-    .isb-badge {
-      background: #fff;
-      border-radius: 3px;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .isb-badge img {
-      width: 24px;
-      height: 24px;
-    }
-
-    .isb-text {
-      display: flex;
-      flex-direction: column;
-      font-size: 0.56rem;
-    }
-
-    .isb-text span:first-child {
-      color: #fff;
-      font-weight: 600;
-      line-height: 1;
-    }
-
-    .isb-text span:last-child {
-      color: rgba(255,255,255,0.6);
-      font-weight: 300;
-      letter-spacing: 0.05em;
+      height: 36px;
+      width: auto;
+      object-fit: contain;
     }
 
     /* ── MAIN CONTENT ── */
     main {
-      max-width: 1200px;
-      margin: 0 auto;
+      flex: 1;
       padding: clamp(1.5rem, 4vw, 3rem);
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .intro {
-      text-align: center;
-      margin-bottom: 2rem;
+    .page-header {
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid var(--light-gray);
+      padding-bottom: 1.5rem;
     }
 
-    .intro h1 {
+    .page-title {
       font-family: 'Source Serif 4', serif;
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
       font-weight: 700;
       color: var(--legacy-blue);
       margin-bottom: 0.5rem;
     }
 
-    .intro p {
-      font-size: 0.95rem;
+    .page-subtitle {
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
       color: var(--mattle-gray);
-      letter-spacing: 0.01em;
+      font-weight: 400;
     }
 
-    /* ── TAB NAVIGATION ── */
-    .tab-nav {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      border-bottom: 2px solid var(--light-gray);
-      flex-wrap: wrap;
+    /* ── MONTH SECTIONS ── */
+    .month-section {
+      margin-bottom: 3rem;
     }
 
-    .tab-btn {
-      padding: 0.75rem 1.5rem;
-      border: none;
-      background: transparent;
-      color: var(--mattle-gray);
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all 0.3s ease;
-      letter-spacing: 0.02em;
-    }
-
-    .tab-btn:hover {
-      color: var(--legacy-blue);
-    }
-
-    .tab-btn.active {
-      color: var(--legacy-blue);
-      border-bottom-color: var(--innovation-blue);
-    }
-
-    /* ── TAB CONTENT ── */
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(5px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ── TABLE STYLES ── */
-    .books-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-
-    .books-table thead {
-      background: var(--legacy-blue);
-      color: #fff;
-    }
-
-    .books-table th {
-      padding: 1rem;
-      text-align: left;
+    .month-header {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
       font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      color: var(--innovation-blue);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--light-gray);
     }
 
-    .books-table td {
-      padding: 0.875rem 1rem;
-      border-top: 1px solid var(--light-gray);
-      font-size: 0.9rem;
-      line-height: 1.4;
+    /* ── BOOK GRID ── */
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: clamp(1rem, 3vw, 2rem);
+      margin-bottom: 2rem;
     }
 
-    .books-table tbody tr:hover {
-      background: #fafbfc;
+    .book-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(46, 59, 66, 0.12);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      border: 1px solid var(--light-gray);
+    }
+
+    .book-card:hover {
+      box-shadow: 0 6px 20px rgba(36, 91, 255, 0.15);
+      transform: translateY(-4px);
+      border-color: var(--innovation-blue);
+    }
+
+    .book-cover {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, var(--light-gray) 0%, var(--silver-gray) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .book-cover-placeholder {
+      font-size: 3rem;
+      color: var(--silver-gray);
+    }
+
+    .book-info {
+      padding: 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .book-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.95rem;
       font-weight: 600;
-      color: var(--legacy-blue);
-      margin-bottom: 0.25rem;
+      color: var(--state-gray);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     .book-author {
-      color: var(--mattle-gray);
       font-size: 0.85rem;
+      color: var(--mattle-gray);
+      margin-bottom: 0.75rem;
       font-style: italic;
     }
 
-    .link-group {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .link-btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.5rem 0.875rem;
+    .book-opac-link {
+      margin-top: auto;
+      display: inline-block;
+      padding: 0.5rem 1rem;
       background: var(--innovation-blue);
       color: #fff;
       text-decoration: none;
       border-radius: 4px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 500;
-      transition: all 0.2s ease;
-      white-space: nowrap;
+      transition: background 0.3s ease;
+      text-align: center;
     }
 
-    .link-btn:hover {
+    .book-opac-link:hover {
       background: var(--legacy-blue);
-      transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(25,40,144,0.2);
-    }
-
-    .link-btn.opac {
-      background: var(--future-green);
-      color: var(--state-gray);
-    }
-
-    .link-btn.opac:hover {
-      background: #6bc9b0;
     }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--state-gray);
-      color: rgba(255,255,255,0.7);
+      background: var(--legacy-blue);
+      color: #fff;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.01em;
+      margin-top: auto;
+      font-size: 0.9rem;
     }
 
     footer a {
@@ -306,425 +228,243 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .books-table th, .books-table td {
-        padding: 0.75rem 0.5rem;
-        font-size: 0.85rem;
+      .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       }
 
-      .link-group {
-        flex-direction: column;
+      .page-title {
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 0 1rem;
+      }
+
+      .header-left {
         gap: 0.5rem;
       }
 
-      .link-btn {
-        width: 100%;
-        justify-content: center;
+      .site-title {
+        font-size: 1rem;
       }
 
-      .tab-nav {
-        gap: 0.25rem;
+      .isb-logo {
+        height: 32px;
       }
 
-      .tab-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
+      main {
+        padding: 1rem;
+      }
+
+      .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 0.75rem;
       }
     }
   </style>
 </head>
 <body>
+  <!-- ── HEADER ── -->
   <header>
     <div class="header-left">
-      <div class="site-title">LRC New Arrivals</div>
-      <div class="hdivider"></div>
-      <div class="site-sub">ISB Library</div>
+      <h1 class="site-title">LRC New Arrivals</h1>
     </div>
-    <a href="https://www.isb.edu" class="isb-logo">
-      <div class="isb-badge">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" fill="#192890"/>
-        </svg>
-      </div>
-      <div class="isb-text">
-        <span>ISB</span>
-        <span>Library</span>
-      </div>
-    </a>
+    <div class="header-right">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/ISB_Delhi_Logo.svg/200px-ISB_Delhi_Logo.svg.png" alt="ISB Logo" class="isb-logo">
+    </div>
   </header>
 
+  <!-- ── MAIN CONTENT ── -->
   <main>
-    <div class="intro">
-      <h1>New Arrivals</h1>
-      <p>Explore our latest book acquisitions organized by month</p>
+    <div class="page-header">
+      <h2 class="page-title">New Arrivals — April & May 2026</h2>
+      <p class="page-subtitle">Discover the latest additions to the LRC collection</p>
     </div>
 
-    <!-- TAB NAVIGATION -->
-    <div class="tab-nav">
-      <button class="tab-btn active" data-tab="april">April 2026</button>
-      <button class="tab-btn" data-tab="may">May 2026</button>
-    </div>
+    <!-- ── APRIL 2026 ── -->
+    <section class="month-section">
+      <h3 class="month-header">April 2026</h3>
+      <div class="books-grid">
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">The Disinterested Witness: A Fragment of Advaita Vedanta Phenomenology</h4>
+            <p class="book-author">Bina Gupta</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118239&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
 
-    <!-- APRIL TAB -->
-    <div id="april" class="tab-content active">
-      <table class="books-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Links</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="book-title">The Disinterested Witness: A Fragment of Advaita Vedanta Phenomenology</div>
-              <div class="book-author">Bina Gupta</div>
-            </td>
-            <td>Bina Gupta</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118239&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Disinterested-Witness-Fragment-Advaita-Phenomenology/s?k=Disinterested+Witness+Bina+Gupta" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Hooked</div>
-              <div class="book-author">Asako Yuzuki (translated by Polly Barton)</div>
-            </td>
-            <td>Asako Yuzuki</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118244&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Hooked-Asako-Yuzuki/s?k=Hooked+Asako+Yuzuki" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">The Groundbreaker: Risks, Rewards, and Lessons from a Legendary Entrepreneur</div>
-              <div class="book-author">Kanwal Rekhi</div>
-            </td>
-            <td>Kanwal Rekhi</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118213&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Groundbreaker-Rewards-Lessons-Legendary-Entrepreneur/s?k=Groundbreaker+Kanwal+Rekhi" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Every Last Girl: A Journey to Educate India's Forgotten Daughters</div>
-              <div class="book-author">Safeena Husain</div>
-            </td>
-            <td>Safeena Husain</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118246&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Every-Last-Girl-Journey-Educate/s?k=Every+Last+Girl+Safeena+Husain" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Broken Rung: When the Career Ladder Breaks for Women and How They Can Succeed in Spite of It</div>
-              <div class="book-author">Kweilin Ellingrud</div>
-            </td>
-            <td>Kweilin Ellingrud</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:117598&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Broken-Rung-Career-Ladder-Breaks/s?k=Broken+Rung+Kweilin+Ellingrud" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">India Innovates: Technological Sovereignty in a Weaponized World</div>
-              <div class="book-author">Pranjal Sharma</div>
-            </td>
-            <td>Pranjal Sharma</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118243&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/India-Innovates-Technological-Sovereignty-Weaponized/s?k=India+Innovates+Pranjal+Sharma" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Inspire: The Universal Path for Leading Yourself and Others</div>
-              <div class="book-author">Adam Galinsky</div>
-            </td>
-            <td>Adam Galinsky</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118185&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Inspire-Universal-Leading-Yourself-Others/s?k=Inspire+Adam+Galinsky" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Lights Out, Minds On: The Psychology Of Speed and the Human Stories Behind Formula 1</div>
-              <div class="book-author">Priyanka Awasthi</div>
-            </td>
-            <td>Priyanka Awasthi</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118245&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Lights-Out-Minds-Psychology-Formula/s?k=Lights+Out+Minds+Priyanka+Awasthi" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">The Midnight Library</div>
-              <div class="book-author">Matt Haig</div>
-            </td>
-            <td>Matt Haig</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118255&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Midnight-Library-Matt-Haig/s?k=Midnight+Library+Matt+Haig" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">World's Best Girlfriend</div>
-              <div class="book-author">Durjoy Datta</div>
-            </td>
-            <td>Durjoy Datta</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118253&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Worlds-Best-Girlfriend-Durjoy-Datta/s?k=World%27s+Best+Girlfriend+Durjoy+Datta" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">12 Years: My Messed-up Love Story</div>
-              <div class="book-author">Chetan Bhagat</div>
-            </td>
-            <td>Chetan Bhagat</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118254&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/12-Years-Messed-Love-Story/s?k=12+Years+My+Messed-up+Love+Story+Chetan+Bhagat" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Prescription for Excellence: Leadership Lessons for Creating a World-Class Customer Experience from UCLA Health System</div>
-              <div class="book-author">Joseph A. Michelli</div>
-            </td>
-            <td>Joseph A. Michelli</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118252&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Prescription-Excellence-Leadership-Lessons-Creating/s?k=Prescription+for+Excellence+Joseph+Michelli" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">Hooked</h4>
+            <p class="book-author">Asako Yuzuki</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118244&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
 
-    <!-- MAY TAB -->
-    <div id="may" class="tab-content">
-      <table class="books-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Links</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="book-title">Joyful, Anyway</div>
-              <div class="book-author">Kate Bowler</div>
-            </td>
-            <td>Kate Bowler</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118269&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Joyful-Anyway-Kate-Bowler/s?k=Joyful+Anyway+Kate+Bowler" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">River Stories</div>
-              <div class="book-author">Henry Hughes</div>
-            </td>
-            <td>Henry Hughes</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118267&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/River-Stories-Henry-Hughes/s?k=River+Stories+Henry+Hughes" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Agents of Change: Strategy and Tactics for Social Innovation</div>
-              <div class="book-author">Sanderijn Cels</div>
-            </td>
-            <td>Sanderijn Cels</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118247&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Agents-Change-Strategy-Tactics-Social/s?k=Agents+of+Change+Sanderijn+Cels" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Careless People: A Story of Where I Used to Work</div>
-              <div class="book-author">Sarah Wynn-Williams</div>
-            </td>
-            <td>Sarah Wynn-Williams</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:117707&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Careless-People-Story-Where-Work/s?k=Careless+People+Sarah+Wynn-Williams" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">The Way Back Home</div>
-              <div class="book-author">Oliver Jeffers</div>
-            </td>
-            <td>Oliver Jeffers</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118268&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Way-Back-Home-Oliver-Jeffers/s?k=The+Way+Back+Home+Oliver+Jeffers" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Alchemy: The Surprising Power of Ideas That Don't Make Sense</div>
-              <div class="book-author">Rory Sutherland</div>
-            </td>
-            <td>Rory Sutherland</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118270&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Alchemy-Surprising-Power-Ideas-Make/s?k=Alchemy+Rory+Sutherland" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">The School of Night</div>
-              <div class="book-author">Karl Ove Knausgaard</div>
-            </td>
-            <td>Karl Ove Knausgaard</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118261&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/School-Night-Karl-Ove-Knausgaard/s?k=The+School+of+Night+Karl+Ove+Knausgaard" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Animalia</div>
-              <div class="book-author">Graeme Base</div>
-            </td>
-            <td>Graeme Base</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118278&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Animalia-Graeme-Base/s?k=Animalia+Graeme+Base" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">If I Built a House</div>
-              <div class="book-author">Chris Van Dusen</div>
-            </td>
-            <td>Chris Van Dusen</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118276&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/If-Built-House-Chris-Van-Dusen/s?k=If+I+Built+a+House+Chris+Van+Dusen" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">If I Built a Car</div>
-              <div class="book-author">Chris Van Dusen</div>
-            </td>
-            <td>Chris Van Dusen</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118277&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/If-Built-Car-Chris-Van-Dusen/s?k=If+I+Built+a+Car+Chris+Van+Dusen" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Outside In</div>
-              <div class="book-author">Deborah Underwood</div>
-            </td>
-            <td>Deborah Underwood</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118275&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Outside-In-Deborah-Underwood/s?k=Outside+In+Deborah+Underwood" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="book-title">Sea: A World Beneath the Waves</div>
-              <div class="book-author">Patricia Hegarty & Britta Teckentrup</div>
-            </td>
-            <td>Patricia Hegarty</td>
-            <td>
-              <div class="link-group">
-                <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118275&fromLocationLink=false&theme=isb" class="link-btn opac">ISB OPAC</a>
-                <a href="https://www.amazon.in/Sea-World-Beneath-Waves-Hegarty/s?k=Sea+World+Beneath+Waves+Patricia+Hegarty" class="link-btn">Amazon.in</a>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">The Groundbreaker: Risks, Rewards, and Lessons from a Legendary Entrepreneur</h4>
+            <p class="book-author">Kanwal Rekhi</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118213&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">Every Last Girl: A Journey to Educate India's Forgotten Daughters</h4>
+            <p class="book-author">Safeena Husain</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118246&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">Broken Rung: When the Career Ladder Breaks for Women and How They Can Succeed in Spite of It</h4>
+            <p class="book-author">Kweilin Ellingrud</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:117598&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">India Innovates: Technological Sovereignty in a Weaponized World</h4>
+            <p class="book-author">Pranjal Sharma</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118243&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">Inspire: The Universal Path for Leading Yourself and Others</h4>
+            <p class="book-author">Adam Galinsky</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118185&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">Lights Out, Minds On: The Psychology Of Speed and the Human Stories Behind Formula 1</h4>
+            <p class="book-author">Priyanka Awasthi</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118245&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">The Midnight Library</h4>
+            <p class="book-author">Matt Haig</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118255&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">World's Best Girlfriend</h4>
+            <p class="book-author">Durjoy Datta</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118253&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">12 Years: My Messed-up Love Story</h4>
+            <p class="book-author">Chetan Bhagat</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118254&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">Prescription for Excellence: Leadership Lessons for Creating a World-Class Customer Experience from UCLA Health System</h4>
+            <p class="book-author">Joseph A. Michelli</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118252&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MAY 2026 ── -->
+    <section class="month-section">
+      <h3 class="month-header">May 2026</h3>
+      <div class="books-grid">
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">Joyful, Anyway</h4>
+            <p class="book-author">Kate Bowler</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118269&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">River Stories</h4>
+            <p class="book-author">Henry Hughes</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118267&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <div class="book-cover-placeholder">📚</div>
+          </div>
+          <div class="book-info">
+            <h4 class="book-title">Agents of Change: Strategy and Tactics for Social Innovation</h4>
+            <p class="book-author">Sanderijn Cels, Jorrit de Jong, Frans Nauta</p>
+            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118268&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- ── FOOTER ── -->
   <footer>
-    <p>ISB Library Services • <a href="https://www.isb.edu">Indian School of Business</a></p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem;">Last Updated: June 2026</p>
+    <p>&copy; 2026 LRC ISB. All rights reserved. | <a href="#">About LRC</a> | <a href="#">Contact Us</a></p>
   </footer>
 
-  <script>
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Remove active class from all buttons and contents
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-        // Add active class to clicked button and corresponding content
-        this.classList.add('active');
-        const tabId = this.getAttribute('data-tab');
-        document.getElementById(tabId).classList.add('active');
-      });
-    });
-  </script>
 </body>
 </html>
