@@ -16,9 +16,9 @@
       --light-gray:      #e6ebee;
       --ivory:           #f4f8fa;
     }
- 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     body {
       background: var(--ivory);
       color: var(--state-gray);
@@ -26,7 +26,7 @@
       font-weight: 400;
       min-height: 100vh;
     }
- 
+
     /* ── HEADER — compact ~44px ── */
     header {
       background: var(--legacy-blue);
@@ -40,13 +40,13 @@
       z-index: 100;
       box-shadow: 0 1px 6px rgba(25,40,144,0.28);
     }
- 
+
     .header-left {
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
- 
+
     .site-title {
       font-family: 'Source Serif 4', serif;
       font-size: 0.8rem;
@@ -54,7 +54,7 @@
       color: #fff;
       letter-spacing: 0.02em;
     }
- 
+
     .site-sub {
       font-size: 0.56rem;
       color: rgba(255,255,255,0.5);
@@ -62,13 +62,13 @@
       text-transform: uppercase;
       font-weight: 300;
     }
- 
+
     .hdivider {
       width: 1px;
       height: 20px;
       background: rgba(255,255,255,0.2);
     }
- 
+
     .header-nav a {
       color: rgba(255,255,255,0.65);
       text-decoration: none;
@@ -79,7 +79,7 @@
       transition: color 0.2s;
     }
     .header-nav a:hover { color: #fff; }
- 
+
     /* ISB Logo — top right, compact */
     .isb-logo {
       display: flex;
@@ -87,7 +87,7 @@
       gap: 0.5rem;
       text-decoration: none;
     }
- 
+
     .isb-badge {
       background: #fff;
       border-radius: 3px;
@@ -98,7 +98,7 @@
       justify-content: center;
       flex-shrink: 0;
     }
- 
+
     .isb-badge span {
       font-family: 'Source Serif 4', serif;
       font-weight: 700;
@@ -106,7 +106,7 @@
       color: var(--legacy-blue);
       letter-spacing: 0.03em;
     }
- 
+
     .isb-label .isb-name {
       font-family: 'Source Serif 4', serif;
       font-size: 0.78rem;
@@ -114,7 +114,7 @@
       color: #fff;
       letter-spacing: 0.04em;
     }
- 
+
     .isb-label .isb-full {
       font-size: 0.52rem;
       color: rgba(255,255,255,0.5);
@@ -122,7 +122,7 @@
       text-transform: uppercase;
       font-weight: 300;
     }
- 
+
     /* ── HERO BANNER — compact ~48px ── */
     .hero {
       background: var(--innovation-blue);
@@ -133,13 +133,13 @@
       justify-content: space-between;
       gap: 1rem;
     }
- 
+
     .hero-left {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
- 
+
     .hero-eyebrow {
       font-size: 0.58rem;
       font-weight: 700;
@@ -147,7 +147,7 @@
       text-transform: uppercase;
       color: var(--future-green);
     }
- 
+
     .hero-title {
       font-family: 'Source Serif 4', serif;
       font-size: 1rem;
@@ -155,18 +155,18 @@
       color: #fff;
       line-height: 1;
     }
- 
+
     .hero-title em {
       font-style: italic;
       color: var(--future-green);
     }
- 
+
     .hero-divider {
       width: 1px;
       height: 22px;
       background: rgba(255,255,255,0.2);
     }
- 
+
     .hero-desc {
       font-size: 0.68rem;
       color: rgba(255,255,255,0.6);
@@ -174,18 +174,18 @@
       max-width: 360px;
       line-height: 1.4;
     }
- 
+
     .hero-right {
       display: flex;
       align-items: center;
       gap: 1.5rem;
       flex-shrink: 0;
     }
- 
+
     .hstat {
       text-align: right;
     }
- 
+
     .hstat-n {
       font-family: 'Source Serif 4', serif;
       font-size: 1rem;
@@ -193,322 +193,1070 @@
       color: var(--future-green);
       line-height: 1;
     }
- 
+
     .hstat-l {
       font-size: 0.52rem;
       color: rgba(255,255,255,0.45);
       letter-spacing: 0.1em;
-      text-transform: uppercase;
     }
- 
-    /* ── MONTH TABS ── */
-    .month-nav {
-      background: var(--state-gray);
-      display: flex;
-      padding: 0 clamp(1rem, 3vw, 2.5rem);
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .month-nav::-webkit-scrollbar { display: none; }
- 
-    .mtab {
-      padding: 0.65rem 1.1rem;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.42);
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color 0.2s, border-color 0.2s;
-      user-select: none;
-    }
-    .mtab:hover { color: rgba(255,255,255,0.8); }
-    .mtab.active { color: var(--future-green); border-bottom-color: var(--future-green); }
- 
-    /* ── LAYOUT ── */
-    .wrap {
-      max-width: 1180px;
+
+    /* ── MAIN CONTAINER ── */
+    main {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 2rem clamp(1rem, 3vw, 2.5rem);
     }
- 
-    /* SECTION HEADER */
-    .sec-hd {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      border-bottom: 2px solid var(--innovation-blue);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.2rem;
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--light-gray);
+      padding-bottom: 1rem;
     }
- 
-    .sec-title {
+
+    .section-title {
       font-family: 'Source Serif 4', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--legacy-blue);
-    }
- 
-    .sec-count {
-      font-size: 0.68rem;
-      color: var(--mattle-gray);
-    }
- 
-    /* FEATURED CARD */
-    .feat-card {
-      background: #fff;
-      border: 1px solid var(--light-gray);
-      border-radius: 5px;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      margin-bottom: 1.4rem;
-      cursor: pointer;
-      transition: box-shadow 0.2s, transform 0.2s;
-      animation: fadeUp 0.4s 0.1s ease both;
-    }
-    .feat-card:hover {
-      box-shadow: 0 4px 20px rgba(36,91,255,0.12);
-      transform: translateY(-2px);
-    }
- 
-    .feat-body { padding: 1.2rem 1.4rem; }
- 
-    .ctype {
-      display: inline-block;
-      font-size: 0.58rem;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.15rem 0.55rem;
-      border-radius: 2px;
-      margin-bottom: 0.6rem;
+      color: var(--legacy-blue);
+      margin-bottom: 0.25rem;
     }
-    .t-book    { background: #e8f0ff; color: #192890; }
-    .t-journal { background: #e2faf5; color: #0a6b58; }
-    .t-report  { background: #f0eeff; color: #4a35a0; }
-    .t-media   { background: #fff2e8; color: #a04818; }
- 
-    .feat-body h2 {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      line-height: 1.22;
-      color: var(--state-gray);
-      margin-bottom: 0.3rem;
-    }
- 
-    .feat-author {
-      font-size: 0.76rem;
+
+    .section-desc {
+      font-size: 0.875rem;
       color: var(--mattle-gray);
-      font-style: italic;
-      margin-bottom: 0.6rem;
+      font-weight: 300;
     }
- 
-    .feat-excerpt {
-      font-size: 0.82rem;
-      color: #4a5a62;
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-    }
- 
-    .cmeta {
+
+    /* ── TABS ── */
+    .tabs {
       display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-size: 0.68rem;
-      color: var(--silver-gray);
+      gap: 0.5rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
     }
-    .cdot { width: 2px; height: 2px; border-radius: 50%; background: var(--silver-gray); }
- 
-    .view-link {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--innovation-blue);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: gap 0.2s;
+
+    .tab-btn {
+      background: var(--light-gray);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--state-gray);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Source Sans 3', sans-serif;
     }
-    .view-link:hover { gap: 0.5rem; }
- 
-    .feat-thumb {
-      background: linear-gradient(140deg, #192890 0%, #245bff 100%);
+
+    .tab-btn:hover {
+      background: var(--silver-gray);
+      color: #fff;
+    }
+
+    .tab-btn.active {
+      background: var(--innovation-blue);
+      color: #fff;
+    }
+
+    /* ── TAB CONTENT ── */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* ── BOOK GRID ── */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    /* ── BOOK CARD ── */
+    .book-card {
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .book-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .book-cover {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, var(--light-gray), var(--silver-gray));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.8rem;
+      overflow: hidden;
     }
- 
-    /* MONTH SECTIONS */
-    .msec { display: none; }
-    .msec.active { display: block; }
- 
-    /* FOOTER */
-    footer {
-      background: var(--state-gray);
-      padding: 1rem clamp(1rem, 3vw, 2.5rem);
+
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-info {
+      padding: 1.25rem;
       display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .book-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--state-gray);
+      line-height: 1.3;
+    }
+
+    .book-author {
+      font-size: 0.8rem;
+      color: var(--mattle-gray);
+      font-weight: 500;
+    }
+
+    .book-description {
+      font-size: 0.75rem;
+      color: var(--silver-gray);
+      line-height: 1.4;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .book-footer {
+      display: flex;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .opac-btn {
+      flex: 1;
+      padding: 0.6rem 0.8rem;
+      background: var(--innovation-blue);
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Source Sans 3', sans-serif;
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.45);
-      margin-top: 1.5rem;
+      justify-content: center;
     }
-    footer span { color: rgba(255,255,255,0.7); }
- 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+
+    .opac-btn:hover {
+      background: var(--legacy-blue);
     }
- 
-    @media (max-width: 860px) {
-      .hero { height: auto; padding: 0.6rem 1rem; flex-wrap: wrap; }
-      .hero-right { display: none; }
-      .feat-card { grid-template-columns: 1fr; }
-      .feat-thumb { min-height: 100px; }
-      .header-nav { display: none; }
-      .isb-label { display: none; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--silver-gray);
+    }
+
+    .empty-state p {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .book-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .book-cover {
+        height: 220px;
+      }
     }
   </style>
 </head>
 <body>
- 
-<!-- HEADER (~44px) -->
-<header>
-  <div class="header-left">
-    <div>
-      <div class="site-title">Learning Resource Centre</div>
-      <div class="site-sub">Indian School of Business</div>
-    </div>
-    <div class="hdivider"></div>
-    <nav class="header-nav">
-      <a href="#">Home</a>
-      <a href="#">Catalogue</a>
-      <a href="#">E-Resources</a>
-      <a href="#">Archive</a>
-    </nav>
-  </div>
- 
-  <!-- ISB Logo — top right -->
-  <a href="#" class="isb-logo">
-    <div class="isb-badge"><span>ISB</span></div>
-    <div class="isb-label">
-      <div class="isb-name">ISB</div>
-      <div class="isb-full">Indian School of Business</div>
-    </div>
-  </a>
-</header>
- 
-<!-- HERO BANNER (~48px) -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">LRC</div>
-    <div class="hero-divider"></div>
-    <div class="hero-title">New <em>Arrivals</em></div>
-    <div class="hero-divider"></div>
-    <div class="hero-desc">Latest books, journals &amp; resources added to the ISB LRC — curated monthly.</div>
-  </div>
-  <div class="hero-right">
-    <div class="hstat"><div class="hstat-n">24</div><div class="hstat-l">Titles</div></div>
-    <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">Categories</div></div>
-    <div class="hstat"><div class="hstat-n">Apr '26</div><div class="hstat-l">Edition</div></div>
-  </div>
-</section>
- 
-<!-- MONTH TABS -->
-<div class="month-nav">
-  <div class="mtab" data-m="jan">Jan 2026</div>
-  <div class="mtab" data-m="feb">Feb 2026</div>
-  <div class="mtab" data-m="mar">Mar 2026</div>
-  <div class="mtab active" data-m="apr">Apr 2026</div>
-  <div class="mtab" data-m="may">May 2026</div>
-  <div class="mtab" data-m="jun">Jun 2026</div>
-</div>
- 
-<!-- MAIN -->
-<div class="wrap">
-  <main>
- 
-    <!-- APRIL -->
-    <div class="msec active" id="m-apr">
-      <div class="sec-hd">
-        <div class="sec-title">Featured Arrival — April 2026</div>
-        <div class="sec-count">Highlighted pick</div>
+  <header>
+    <div class="header-left">
+      <div>
+        <div class="site-title">LRC New Arrivals</div>
+        <div class="site-sub">Learning Resource Centre</div>
       </div>
- 
-      <div class="feat-card">
-        <div class="feat-body">
-          <span class="ctype t-book">Book</span>
-          <h2>The Art of Strategic Leadership in Emerging Markets</h2>
-          <div class="feat-author">by Ramesh Krishnamurthy &amp; Anita Desai</div>
-          <p class="feat-excerpt">A comprehensive guide examining strategic leadership frameworks for high-growth emerging economies. Drawing on case studies from India, Brazil, and Southeast Asia, this book provides actionable insights for leaders navigating complex markets.</p>
-          <div class="cmeta">
-            <span>Added Apr 2, 2026</span><span class="cdot"></span>
-            <span>Management</span><span class="cdot"></span>
-            <a class="view-link" href="#">View in Catalogue →</a>
+      <div class="hdivider"></div>
+      <nav class="header-nav">
+        <a href="#april">April</a>
+        <a href="#may">May</a>
+      </nav>
+    </div>
+    <a href="https://www.isb.edu" class="isb-logo" target="_blank">
+      <div class="isb-badge"><span>ISB</span></div>
+      <div class="isb-label">
+        <div class="isb-name">ISB</div>
+        <div class="isb-full">Indian School of Business</div>
+      </div>
+    </a>
+  </header>
+
+  <div class="hero">
+    <div class="hero-left">
+      <span class="hero-eyebrow">📚 Latest</span>
+      <h1 class="hero-title">New <em>Arrivals</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">Discover our curated collection of new books across leadership, innovation, and development</p>
+    </div>
+    <div class="hero-right">
+      <div class="hstat">
+        <div class="hstat-n">48</div>
+        <div class="hstat-l">New Books</div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ── APRIL 2026 ── -->
+    <section id="april">
+      <div class="section-header">
+        <h2 class="section-title">April 2026</h2>
+        <p class="section-desc">12 new titles covering philosophy, business, and leadership</p>
+      </div>
+
+      <div class="book-grid">
+        <!-- 1. The Disinterested Witness -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/51YqLhxqzRL._SX329_BO1,204,203,200_.jpg" alt="The Disinterested Witness">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Disinterested Witness: A Fragment of Advaita Vedanta Phenomenology</div>
+            <div class="book-author">Bina Gupta</div>
+            <div class="book-description">A philosophical exploration of the witness-consciousness in Advaita Vedanta, examining the nature of consciousness and self through comparative phenomenological analysis.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118239&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
           </div>
         </div>
-        <div class="feat-thumb">📘</div>
+
+        <!-- 2. Hooked -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41J+eqGKsOL._SY522_.jpg" alt="Hooked by Asako Yuzuki">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Hooked: A Novel of Obsession</div>
+            <div class="book-author">Asako Yuzuki</div>
+            <div class="book-description">A psychological novel exploring themes of obsession, desire, and the complexities of modern relationships through the lens of emotional turmoil and self-discovery.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118244&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. The Groundbreaker -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51-sRCNDddL._SY522_.jpg" alt="The Groundbreaker by Kanwal Rekhi">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Groundbreaker: Risks, Rewards, and Lessons from a Legendary Entrepreneur</div>
+            <div class="book-author">Kanwal Rekhi</div>
+            <div class="book-description">An inspiring memoir chronicling the journey of a Silicon Valley pioneer, detailing entrepreneurship, innovation, resilience, and the evolving American dream.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118213&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Every Last Girl -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/61qBPhziAsL._SY522_.jpg" alt="Every Last Girl by Safeena Husain">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Every Last Girl: A Journey to Educate India's Forgotten Daughters</div>
+            <div class="book-author">Safeena Husain</div>
+            <div class="book-description">A powerful memoir and social commentary on bringing education to marginalized girls in rural India, showcasing the transformative power of education and inclusion.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118246&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Broken Rung -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41MzLVLKbLL._SY522_.jpg" alt="The Broken Rung by Kweilin Ellingrud">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Broken Rung: When the Career Ladder Breaks for Women—and How They Can Succeed</div>
+            <div class="book-author">Kweilin Ellingrud, Lareina Yee, María del Mar Martínez</div>
+            <div class="book-description">A groundbreaking exploration of the invisible barrier holding women back at the start of their careers, with data-driven insights and practical strategies for advancement.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:117598&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. India Innovates -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41xhcqvZbtL._SY522_.jpg" alt="India Innovates by Pranjal Sharma">
+          </div>
+          <div class="book-info">
+            <div class="book-title">India Innovates: Technological Sovereignty in a Weaponized World</div>
+            <div class="book-author">Pranjal Sharma</div>
+            <div class="book-description">An in-depth analysis of India's quest for technological sovereignty, exploring critical technologies, digital infrastructure, and strategic self-reliance in a rapidly evolving global landscape.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118243&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Inspire -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/81td4J5gSJL._AC_UF1000,1000_QL80_.jpg" alt="Inspire by Adam Galinsky">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Inspire: The Universal Path for Leading Yourself and Others</div>
+            <div class="book-author">Adam Galinsky</div>
+            <div class="book-description">A science-based guide to motivation and influence, exploring how to unlock motivation by managing fuel and friction to unleash creativity and performance.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118185&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Lights Out, Minds On -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41exILzBiDL._SY522_.jpg" alt="Lights Out, Minds On by Priyanka Awasthi">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Lights Out, Minds On: The Psychology of Speed and the Human Stories Behind Formula 1</div>
+            <div class="book-author">Priyanka Awasthi</div>
+            <div class="book-description">A unique exploration of the mental and psychological challenges faced by Formula 1 drivers, focusing on resilience, focus, and the human condition under pressure.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118245&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. The Midnight Library -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81r+LNJbX1L.jpg" alt="The Midnight Library by Matt Haig">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Midnight Library</div>
+            <div class="book-author">Matt Haig</div>
+            <div class="book-description">A bestselling novel exploring regret, hope, and alternate realities, where a woman discovers different paths her life could have taken and finds meaning in her journey.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118255&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. World's Best Girlfriend -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/81gtnz1CYGL._AC_UL600_SR600,600_.jpg" alt="World's Best Girlfriend by Durjoy Datta">
+          </div>
+          <div class="book-info">
+            <div class="book-title">World's Best Girlfriend</div>
+            <div class="book-author">Durjoy Datta</div>
+            <div class="book-description">A contemporary romance novel exploring love, ambition, rivalry, and self-discovery among young professionals navigating modern Indian society.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118253&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. 12 Years: My Messed-up Love Story -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51-dz1E6tLL._SY522_.jpg" alt="12 Years: My Messed-up Love Story by Chetan Bhagat">
+          </div>
+          <div class="book-info">
+            <div class="book-title">12 Years: My Messed-up Love Story</div>
+            <div class="book-author">Chetan Bhagat</div>
+            <div class="book-description">A romantic novel about an unconventional relationship between two people from vastly different backgrounds, exploring love, ambition, and societal expectations.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118254&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Prescription for Excellence -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41O8lpMKO8L._SX329_BO1,204,203,200_.jpg" alt="Prescription for Excellence by Joseph Michelli">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Prescription for Excellence: Leadership Lessons for Creating a World-Class Customer Experience</div>
+            <div class="book-author">Joseph A. Michelli</div>
+            <div class="book-description">A business guide exploring UCLA Health System's strategies for delivering exceptional patient care and operational excellence through leadership and organizational culture.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118252&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
- 
-    <!-- JAN -->
-    <div class="msec" id="m-jan">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — January 2026</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">January 2026 content.</p>
-    </div>
- 
-    <!-- FEB -->
-    <div class="msec" id="m-feb">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — February 2026</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">February 2026 content.</p>
-    </div>
- 
-    <!-- MAR -->
-    <div class="msec" id="m-mar">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — March 2026</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">March 2026 content.</p>
-    </div>
- 
-    <!-- MAY -->
-    <div class="msec" id="m-may">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — May 2026</div><div class="sec-count">Coming soon</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">May 2026 arrivals will be published at the start of the month.</p>
-    </div>
- 
-    <!-- JUN -->
-    <div class="msec" id="m-jun">
-      <div class="sec-hd"><div class="sec-title">New Arrivals — June 2026</div><div class="sec-count">Coming soon</div></div>
-      <p style="color:var(--mattle-gray);font-size:0.85rem;padding:2rem 0;font-style:italic;">June 2026 arrivals have not yet been published.</p>
-    </div>
- 
+    </section>
+
+    <hr style="margin: 4rem 0; border: none; border-top: 1px solid var(--light-gray);">
+
+    <!-- ── MAY 2026 ── -->
+    <section id="may">
+      <div class="section-header">
+        <h2 class="section-title">May 2026</h2>
+        <p class="section-desc">36 new titles spanning business, children's literature, entrepreneurship, and more</p>
+      </div>
+
+      <div class="book-grid">
+        <!-- 1. Joyful, Anyway -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51-BhVLGQqL._SY522_.jpg" alt="Joyful, Anyway by Kate Bowler">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Joyful, Anyway</div>
+            <div class="book-author">Kate Bowler</div>
+            <div class="book-description">A profound meditation on finding joy amid hardship, exploring how joy arrives unexpectedly even when pain and longing persist, through personal stories and philosophical insights.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118269&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. River Stories -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41MqjHLbakL._SY522_.jpg" alt="River Stories by Henry Hughes">
+          </div>
+          <div class="book-info">
+            <div class="book-title">River Stories</div>
+            <div class="book-author">Henry Hughes</div>
+            <div class="book-description">A collection of short stories exploring lives and landscapes shaped by rivers, blending literary prose with natural observation and themes of memory and change.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118267&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Agents of Change -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41-8qpNRY6L._SY522_.jpg" alt="Agents of Change by Sanderijn Cels">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Agents of Change: Strategy and Tactics for Social Innovation</div>
+            <div class="book-author">Sanderijn Cels, Jorrit de Jong, Frans Nauta</div>
+            <div class="book-description">An exploration of how social innovators achieve significant change in resistant institutional environments, with real-life case studies and practical strategies.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118247&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Careless People -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41X3KqAQPnL._SY522_.jpg" alt="Careless People by Sarah Wynn-Williams">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Careless People: A Story of Where I Used to Work</div>
+            <div class="book-author">Sarah Wynn-Williams</div>
+            <div class="book-description">An insider account and cautionary tale about corporate power in the tech industry, revealing ethical failures and the personal cost of unchecked growth.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:117707&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. The Way Back Home -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51Z8l7q-VvL._SY522_.jpg" alt="The Way Back Home by Oliver Jeffers">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Way Back Home</div>
+            <div class="book-author">Oliver Jeffers</div>
+            <div class="book-description">A beautifully illustrated children's picture book about friendship, resourcefulness, and helping one another when stranded in unexpected places.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118268&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Alchemy -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51JQqSBWG2L._SY522_.jpg" alt="Alchemy by Rory Sutherland">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Alchemy: The Surprising Power of Ideas That Don't Make Sense</div>
+            <div class="book-author">Rory Sutherland</div>
+            <div class="book-description">An exploration of the irrational nature of human behavior in marketing and branding, showing how psychology and emotion often trump logic in driving success.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118270&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. The School of Night -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41-pYP8EUZL._SY522_.jpg" alt="The School of Night by Karl Ove Knausgaard">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The School of Night</div>
+            <div class="book-author">Karl Ove Knausgaard</div>
+            <div class="book-description">A dark psychological novel exploring ambition, morality, and the cost of success through the story of a photographer's descent into moral ruin.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118261&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Animalia -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51xmvUVNvZL._SY522_.jpg" alt="Animalia by Graeme Base">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Animalia</div>
+            <div class="book-author">Graeme Base</div>
+            <div class="book-description">A classic children's alphabet book with lavish illustrations, playful alliterative verse, and hidden puzzles that encourage close observation and discovery.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118278&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. If I Built a House -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51WKZuiVFcL._SY522_.jpg" alt="If I Built a House by Chris Van Dusen">
+          </div>
+          <div class="book-info">
+            <div class="book-title">If I Built a House</div>
+            <div class="book-author">Chris Van Dusen</div>
+            <div class="book-description">A vibrant children's picture book where a boy dreams up his perfect house with whimsical features, celebrating creativity and thinking outside the box.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118276&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. If I Built a Car -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/511Cyx6jPKL._SY522_.jpg" alt="If I Built a Car by Chris Van Dusen">
+          </div>
+          <div class="book-info">
+            <div class="book-title">If I Built a Car</div>
+            <div class="book-author">Chris Van Dusen</div>
+            <div class="book-description">An imaginative children's picture book where a boy designs his dream car with incredible futuristic features, celebrating invention and creative imagination.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118277&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Outside In -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41WfHZFdBXL._SY522_.jpg" alt="Outside In by Deborah Underwood">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Outside In</div>
+            <div class="book-author">Deborah Underwood</div>
+            <div class="book-description">A beautifully illustrated children's book exploring the vital connections between nature and everyday life, promoting mindfulness and environmental curiosity.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118275&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Sea: A World Beneath the Waves -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51BQYmC2RwL._SY522_.jpg" alt="Sea: A World Beneath the Waves by Patricia Hegarty">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Sea: A World Beneath the Waves</div>
+            <div class="book-author">Patricia Hegarty</div>
+            <div class="book-description">An enchanting children's book with poetic text and captivating illustrations exploring ocean depths, marine life, and the importance of protecting our seas.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118258&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Diary of a Worm -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51BYa5RK3bL._SY522_.jpg" alt="Diary of a Worm by Doreen Cronin">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Diary of a Worm</div>
+            <div class="book-author">Doreen Cronin</div>
+            <div class="book-description">A charming children's book in diary format about a young worm's adventures, with humorous entries and lessons about acceptance and friendship.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118260&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Diary of a Fly -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51lJjTYO7HL._SY522_.jpg" alt="Diary of a Fly by Doreen Cronin">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Diary of a Fly</div>
+            <div class="book-author">Doreen Cronin</div>
+            <div class="book-description">A humorous children's picture book about a young fly's diary entries, touching on friendship, self-acceptance, and understanding differences through an insect's perspective.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118259&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Diary of a Spider -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/515eaDYxKXL._SY522_.jpg" alt="Diary of a Spider by Doreen Cronin">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Diary of a Spider</div>
+            <div class="book-author">Doreen Cronin</div>
+            <div class="book-description">A witty children's book following a young spider's daily life through diary entries, with humor and insights about differences and the world from another perspective.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118262&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16. Butter -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41a3gZY-cQL._SY522_.jpg" alt="Butter by Asako Yuzuki">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Butter</div>
+            <div class="book-author">Asako Yuzuki</div>
+            <div class="book-description">A psychological drama exploring food, femininity, desire, and loneliness, examining societal pressures on women and the power of culinary temptation.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118283&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17. The Lost Stories -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51f8QVkP2sL._SY522_.jpg" alt="The Lost Stories by John Flanagan">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Lost Stories</div>
+            <div class="book-author">John Flanagan</div>
+            <div class="book-description">A collection of short stories in the Ranger's Apprentice series, filling gaps in the main storyline and exploring backstories of beloved characters.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118306&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18. The Founder Manual -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41FfEAFEIUL._SY522_.jpg" alt="The Founder Manual by Utsav Somani">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Founder Manual: Insights from the Top Founders of India</div>
+            <div class="book-author">Utsav Somani</div>
+            <div class="book-description">A practical guide for building and scaling startups in India, featuring real stories from successful founders and actionable frameworks for entrepreneurship.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118308&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 19. Startups of Bharat -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41j7UwQITfL._SY522_.jpg" alt="Startups of Bharat by Aditya Arora">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Startups of Bharat: Stories of India's Million-Dollar Founders Under Thirty</div>
+            <div class="book-author">Aditya Arora</div>
+            <div class="book-description">An exploration of entrepreneurship in India's smaller towns and emerging hubs, celebrating grassroots innovation and resilience beyond metro cities.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118307&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 20. The Little Book of Indian Business -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41xjxzQWzEL._SY522_.jpg" alt="The Little Book of Indian Business by Finshots">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Little Book of Indian Business</div>
+            <div class="book-author">Finshots</div>
+            <div class="book-description">A concise, witty guide to Indian business and finance, making complex concepts accessible through bite-sized essays and case studies relevant to the Indian economy.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118305&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 21. If I Built a School -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51pEOsxTJ-L._SY522_.jpg" alt="If I Built a School by Chris Van Dusen">
+          </div>
+          <div class="book-info">
+            <div class="book-title">If I Built a School</div>
+            <div class="book-author">Chris Van Dusen</div>
+            <div class="book-description">An imaginative children's picture book where a boy dreams up his ideal school with futuristic inventions, celebrating creativity and exciting learning environments.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118309&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 22. Unravelled -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41aIr9gKJUL._SY522_.jpg" alt="Unravelled by Shannon Messenger">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Unravelled</div>
+            <div class="book-author">Shannon Messenger</div>
+            <div class="book-description">Book 9.5 in the Keeper of the Lost Cities series, told from Keefe's perspective as he navigates challenges in the human world and uncovers family secrets.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118303&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 23. Organizational Learning from Performance Feedback -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41h2gGRxHvL._SY522_.jpg" alt="Organizational Learning from Performance Feedback by Pino Audia">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Organizational Learning from Performance Feedback: A Behavioral Perspective on Multiple Goals</div>
+            <div class="book-author">Pino G. Audia</div>
+            <div class="book-description">A comprehensive analysis of how organizations learn and adapt in response to performance feedback, exploring decision-making and organizational change.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118280&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 24. Professional Real Estate Development -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41rw8xQVEvL._SY522_.jpg" alt="Professional Real Estate Development by Richard Peiser">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Professional Real Estate Development: The ULI Guide to the Business</div>
+            <div class="book-author">Richard B. Peiser</div>
+            <div class="book-description">A comprehensive textbook covering the entire real estate development process from conception to marketing, with practical guidance and real-world examples.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118186&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 25. Data Analysis for Business, Economics, and Policy -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41vPxIUtBZL._SY522_.jpg" alt="Data Analysis for Business, Economics, and Policy by Gábor Békés">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Data Analysis for Business, Economics, and Policy</div>
+            <div class="book-author">Gábor Békés</div>
+            <div class="book-description">A hands-on textbook for learning data analysis with practical real-world datasets, focusing on both theory and implementation for evidence-based decision-making.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118279&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 26. The Almanack of Naval Ravikant -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41a5yPtpAKL._SY522_.jpg" alt="The Almanack of Naval Ravikant by Eric Jorgenson">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Almanack of Naval Ravikant: A Guide to Wealth and Happiness</div>
+            <div class="book-author">Eric Jorgenson</div>
+            <div class="book-description">A curated collection of wisdom from entrepreneur Naval Ravikant, offering practical insights on wealth, happiness, and personal development.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118311&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 27. Streetwise: Getting Through Goldman Sachs -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41L3vZNtDTL._SY522_.jpg" alt="Streetwise by Lloyd Blankfein">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Streetwise: Getting To and Through Goldman Sachs</div>
+            <div class="book-author">Lloyd Blankfein</div>
+            <div class="book-description">Insights and lessons from Goldman Sachs' leadership on navigating finance, career development, and success in one of the world's most prestigious firms.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118304&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 28. The Ruins of Gorlan -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51CxwI2MJPL._SY522_.jpg" alt="The Ruins of Gorlan by John Flanagan">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Ruins of Gorlan</div>
+            <div class="book-author">John Flanagan</div>
+            <div class="book-description">First book in the Ranger's Apprentice series, following the adventures of an orphan in a magical medieval world discovering his calling as a ranger.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118282&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 29. Nevermoor: The Trials of Morrigan Crow -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41W8zTOFYlL._SY522_.jpg" alt="Nevermoor by Jessica Townsend">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Nevermoor: The Trials of Morrigan Crow</div>
+            <div class="book-author">Jessica Townsend</div>
+            <div class="book-description">A fantasy adventure about a cursed girl who escapes to a magical world and must pass trials to earn a place in an extraordinary society.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118310&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 30. Silverborn: The Mystery of Morrigan Crow -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41EoQtKZkEL._SY522_.jpg" alt="Silverborn by Jessica Townsend">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Silverborn: The Mystery of Morrigan Crow</div>
+            <div class="book-author">Jessica Townsend</div>
+            <div class="book-description">A continuation of the Nevermoor series, exploring deeper mysteries and challenges in Morrigan's magical world with adventure and intrigue.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118290&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 31. Building Epic Brands -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41eV-1l1dAL._SY522_.jpg" alt="Building Epic Brands by Saurabh Uboweja">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Building Epic Brands: The Definitive Guide</div>
+            <div class="book-author">Saurabh Uboweja</div>
+            <div class="book-description">A comprehensive guide to brand building, covering strategy, positioning, and practical tactics for creating lasting and impactful brands.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118264&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 32. The Siege of Macindaw -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/51eJEWYR9JL._SY522_.jpg" alt="The Siege of Macindaw by John Flanagan">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Siege of Macindaw</div>
+            <div class="book-author">John Flanagan</div>
+            <div class="book-description">A book in the Ranger's Apprentice series featuring intense action, strategy, and the growing skills of the apprentice ranger character.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118286&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 33. Buildit: Building Blinkit in an Evolving India -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41SbcHiXltL._SY522_.jpg" alt="Buildit by Albinder Singh Dhindsa">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Buildit: Building Blinkit in an Evolving India</div>
+            <div class="book-author">Albinder Singh Dhindsa</div>
+            <div class="book-description">An insider's account of building Blinkit, a fast-growing startup, navigating challenges and opportunities in India's dynamic business landscape.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118315&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 34. Flourish -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41j4p9gCNXL._SY522_.jpg" alt="Flourish by Daniel Coyle">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Flourish: The Art of Building Meaning, Joy and Fulfilment</div>
+            <div class="book-author">Daniel Coyle</div>
+            <div class="book-description">An exploration of how to build meaningful lives and cultures, drawing on insights from high-performing groups and organizations.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118169&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 35. Mattering -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41LqW1DmvUL._SY522_.jpg" alt="Mattering by Jennifer Breheny Wallace">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Mattering: The Secret to Building a Life of Deep Connection and Purpose</div>
+            <div class="book-author">Jennifer Breheny Wallace</div>
+            <div class="book-description">A guide to building meaningful connections and a sense of purpose in life, exploring what truly makes us feel that we matter.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118139&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 36. The Balancing Act -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41Mz-WNfz9L._SY522_.jpg" alt="The Balancing Act by Nedra Glover Tawwab">
+          </div>
+          <div class="book-info">
+            <div class="book-title">The Balancing Act: Creating Healthy Dependency and Connection without Losing Yourself</div>
+            <div class="book-author">Nedra Glover Tawwab</div>
+            <div class="book-description">A guide to building healthy relationships while maintaining personal boundaries, exploring dependency, connection, and self-preservation.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118170&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 37. Unreasonable Hospitality -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41phMgP1wkL._SY522_.jpg" alt="Unreasonable Hospitality by Will Guidara">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Unreasonable Hospitality: The Remarkable Power of Giving People More Than They Expect</div>
+            <div class="book-author">Will Guidara</div>
+            <div class="book-description">A business philosophy and personal narrative on the transformative power of exceptional service and going beyond expectations in every interaction.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118249&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 38. Open to Work -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41VjNeq5RuL._SY522_.jpg" alt="Open to Work by Ryan Roslansky">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Open to Work: How to Get Ahead in the Age of AI</div>
+            <div class="book-author">Ryan Roslansky</div>
+            <div class="book-description">A guide for navigating career development and professional growth in an AI-driven world, offering strategies for staying competitive and relevant.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118317&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 39. A CEO's Brew -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41wZxVqVzVL._SY522_.jpg" alt="A CEO's Brew by Sanjiv Mehta">
+          </div>
+          <div class="book-info">
+            <div class="book-title">A CEO's Brew Stirred with Passion, Purpose and Humbition: My Unilever Journey to Creating Over $60 Billion Value</div>
+            <div class="book-author">Sanjiv Mehta</div>
+            <div class="book-description">An inspiring memoir from a Unilever CEO, detailing his leadership journey, lessons, and the values that drove massive value creation.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118318&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 40. Inside the Box -->
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="https://m.media-amazon.com/images/I/41FV3dWWdKL._SY522_.jpg" alt="Inside the Box by David Epstein">
+          </div>
+          <div class="book-info">
+            <div class="book-title">Inside the Box: How Constraints Make Us Better</div>
+            <div class="book-author">David Epstein</div>
+            <div class="book-description">An exploration of how constraints and limitations can drive innovation, creativity, and better decision-making in business and life.</div>
+            <div class="book-footer">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118291&fromLocationLink=false&theme=isb" class="opac-btn" target="_blank">View in OPAC</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-</div>
- 
-<!-- FOOTER -->
-<footer>
-  <div>© 2026 Indian School of Business · Learning Resource Centre</div>
-  <span>Hyderabad · Mohali</span>
-</footer>
- 
-<script>
-  document.querySelectorAll('.mtab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.mtab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.msec').forEach(s => s.classList.remove('active'));
-      tab.classList.add('active');
-      const sec = document.getElementById('m-' + tab.dataset.m);
-      if (sec) sec.classList.add('active');
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const targetId = e.target.dataset.tab;
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        document.getElementById(targetId).classList.add('active');
+        e.target.classList.add('active');
+      });
     });
-  });
-</script>
- 
+
+    // Default: show April
+    document.getElementById('april').classList.add('active');
+  </script>
 </body>
 </html>
