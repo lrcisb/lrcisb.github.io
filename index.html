@@ -69,6 +69,50 @@
       object-fit: contain;
     }
 
+    /* ── TAB NAVIGATION ── */
+    .tab-container {
+      background: #fff;
+      border-bottom: 2px solid var(--light-gray);
+      padding: 0 clamp(1rem, 3vw, 2.5rem);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-list {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      min-width: min-content;
+    }
+
+    .tab-list li {
+      display: inline-block;
+    }
+
+    .tab-button {
+      padding: 0.75rem 1.25rem;
+      background: transparent;
+      border: none;
+      color: var(--mattle-gray);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .tab-button:hover {
+      color: var(--innovation-blue);
+    }
+
+    .tab-button.active {
+      color: var(--innovation-blue);
+      border-bottom-color: var(--innovation-blue);
+    }
+
     /* ── MAIN CONTENT ── */
     main {
       flex: 1;
@@ -100,7 +144,21 @@
 
     /* ── MONTH SECTIONS ── */
     .month-section {
-      margin-bottom: 3rem;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .month-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     .month-header {
@@ -238,6 +296,17 @@
       background: #E68A0D;
     }
 
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--mattle-gray);
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--legacy-blue);
@@ -267,6 +336,11 @@
 
       .page-title {
         margin-bottom: 0.75rem;
+      }
+
+      .tab-button {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
       }
     }
 
@@ -306,6 +380,15 @@
         margin-bottom: 0.75rem;
       }
 
+      .tab-container {
+        padding: 0;
+      }
+
+      .tab-button {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.8rem;
+      }
+
       .book-links {
         flex-direction: column;
       }
@@ -327,15 +410,25 @@
     </div>
   </header>
 
+  <!-- ── TAB NAVIGATION ── -->
+  <nav class="tab-container">
+    <ul class="tab-list">
+      <li><button class="tab-button active" data-tab="april-2026">April 2026</button></li>
+      <li><button class="tab-button" data-tab="may-2026">May 2026</button></li>
+      <li><button class="tab-button" data-tab="june-2026">June 2026</button></li>
+      <li><button class="tab-button" data-tab="july-2026">July 2026</button></li>
+    </ul>
+  </nav>
+
   <!-- ── MAIN CONTENT ── -->
   <main>
     <div class="page-header">
-      <h2 class="page-title">New Arrivals — April & May 2026</h2>
+      <h2 class="page-title">New Arrivals</h2>
       <p class="page-subtitle">Discover the latest additions to the LRC collection</p>
     </div>
 
     <!-- ── APRIL 2026 ── -->
-    <section class="month-section">
+    <section id="april-2026" class="month-section active">
       <h3 class="month-header">April 2026</h3>
       <div class="books-grid">
         <div class="book-card">
@@ -509,7 +602,7 @@
     </section>
 
     <!-- ── MAY 2026 ── -->
-    <section class="month-section">
+    <section id="may-2026" class="month-section">
       <h3 class="month-header">May 2026</h3>
       <div class="books-grid">
         <div class="book-card">
@@ -555,12 +648,51 @@
         </div>
       </div>
     </section>
+
+    <!-- ── JUNE 2026 ── (Template) -->
+    <section id="june-2026" class="month-section">
+      <h3 class="month-header">June 2026</h3>
+      <div class="empty-state">
+        <div class="empty-state-icon">📚</div>
+        <p>No books added yet for June 2026</p>
+      </div>
+    </section>
+
+    <!-- ── JULY 2026 ── (Template) -->
+    <section id="july-2026" class="month-section">
+      <h3 class="month-header">July 2026</h3>
+      <div class="empty-state">
+        <div class="empty-state-icon">📚</div>
+        <p>No books added yet for July 2026</p>
+      </div>
+    </section>
+
   </main>
 
   <!-- ── FOOTER ── -->
   <footer>
     <p>&copy; 2026 LRC ISB. All rights reserved. | <a href="#">About LRC</a> | <a href="#">Contact Us</a></p>
   </footer>
+
+  <script>
+    // Tab switching functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const sections = document.querySelectorAll('.month-section');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+
+        // Remove active class from all buttons and sections
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        sections.forEach(section => section.classList.remove('active'));
+
+        // Add active class to clicked button and corresponding section
+        button.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
