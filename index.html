@@ -15,6 +15,7 @@
       --silver-gray:     #95a9b4;
       --light-gray:      #e6ebee;
       --ivory:           #f4f8fa;
+      --amazon-orange:   #FF9900;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -188,22 +189,41 @@
       font-style: italic;
     }
 
-    .book-opac-link {
+    .book-links {
       margin-top: auto;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .book-link {
       display: inline-block;
-      padding: 0.5rem 1rem;
-      background: var(--innovation-blue);
+      padding: 0.5rem 0.8rem;
       color: #fff;
       text-decoration: none;
       border-radius: 4px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
       transition: background 0.3s ease;
       text-align: center;
+      flex: 1;
+      min-width: 90px;
+    }
+
+    .book-opac-link {
+      background: var(--innovation-blue);
     }
 
     .book-opac-link:hover {
       background: var(--legacy-blue);
+    }
+
+    .book-amazon-link {
+      background: var(--amazon-orange);
+    }
+
+    .book-amazon-link:hover {
+      background: #E68A0D;
     }
 
     /* ── FOOTER ── */
@@ -262,6 +282,14 @@
         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
         gap: 0.75rem;
       }
+
+      .book-links {
+        flex-direction: column;
+      }
+
+      .book-link {
+        min-width: auto;
+      }
     }
   </style>
 </head>
@@ -294,7 +322,10 @@
           <div class="book-info">
             <h4 class="book-title">The Disinterested Witness: A Fragment of Advaita Vedanta Phenomenology</h4>
             <p class="book-author">Bina Gupta</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118239&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118239&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=The+Disinterested+Witness+Bina+Gupta" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -305,7 +336,10 @@
           <div class="book-info">
             <h4 class="book-title">Hooked</h4>
             <p class="book-author">Asako Yuzuki</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118244&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118244&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=Hooked+Asako+Yuzuki" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -316,7 +350,10 @@
           <div class="book-info">
             <h4 class="book-title">The Groundbreaker: Risks, Rewards, and Lessons from a Legendary Entrepreneur</h4>
             <p class="book-author">Kanwal Rekhi</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118213&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118213&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=The+Groundbreaker+Kanwal+Rekhi" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -327,7 +364,10 @@
           <div class="book-info">
             <h4 class="book-title">Every Last Girl: A Journey to Educate India's Forgotten Daughters</h4>
             <p class="book-author">Safeena Husain</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118246&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118246&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=Every+Last+Girl+Safeena+Husain" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -338,7 +378,10 @@
           <div class="book-info">
             <h4 class="book-title">Broken Rung: When the Career Ladder Breaks for Women and How They Can Succeed in Spite of It</h4>
             <p class="book-author">Kweilin Ellingrud</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:117598&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:117598&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=Broken+Rung+Kweilin+Ellingrud" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -349,7 +392,10 @@
           <div class="book-info">
             <h4 class="book-title">India Innovates: Technological Sovereignty in a Weaponized World</h4>
             <p class="book-author">Pranjal Sharma</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118243&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118243&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=India+Innovates+Pranjal+Sharma" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -360,7 +406,10 @@
           <div class="book-info">
             <h4 class="book-title">Inspire: The Universal Path for Leading Yourself and Others</h4>
             <p class="book-author">Adam Galinsky</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118185&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118185&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=Inspire+Adam+Galinsky" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -371,7 +420,10 @@
           <div class="book-info">
             <h4 class="book-title">Lights Out, Minds On: The Psychology Of Speed and the Human Stories Behind Formula 1</h4>
             <p class="book-author">Priyanka Awasthi</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118245&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118245&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=Lights+Out+Minds+On+Priyanka+Awasthi" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -382,7 +434,10 @@
           <div class="book-info">
             <h4 class="book-title">The Midnight Library</h4>
             <p class="book-author">Matt Haig</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118255&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118255&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=The+Midnight+Library+Matt+Haig" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -393,7 +448,10 @@
           <div class="book-info">
             <h4 class="book-title">World's Best Girlfriend</h4>
             <p class="book-author">Durjoy Datta</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118253&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118253&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=World's+Best+Girlfriend+Durjoy+Datta" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -404,7 +462,10 @@
           <div class="book-info">
             <h4 class="book-title">12 Years: My Messed-up Love Story</h4>
             <p class="book-author">Chetan Bhagat</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118254&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118254&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=12+Years+My+Messed-up+Love+Story+Chetan+Bhagat" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -415,7 +476,10 @@
           <div class="book-info">
             <h4 class="book-title">Prescription for Excellence: Leadership Lessons for Creating a World-Class Customer Experience from UCLA Health System</h4>
             <p class="book-author">Joseph A. Michelli</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118252&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118252&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=Prescription+for+Excellence+Joseph+Michelli" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
       </div>
@@ -432,7 +496,10 @@
           <div class="book-info">
             <h4 class="book-title">Joyful, Anyway</h4>
             <p class="book-author">Kate Bowler</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118269&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118269&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=Joyful+Anyway+Kate+Bowler" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -443,7 +510,10 @@
           <div class="book-info">
             <h4 class="book-title">River Stories</h4>
             <p class="book-author">Henry Hughes</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118267&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118267&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=River+Stories+Henry+Hughes" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
 
@@ -454,7 +524,10 @@
           <div class="book-info">
             <h4 class="book-title">Agents of Change: Strategy and Tactics for Social Innovation</h4>
             <p class="book-author">Sanderijn Cels, Jorrit de Jong, Frans Nauta</p>
-            <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118268&fromLocationLink=false&theme=isb" class="book-opac-link" target="_blank">View in OPAC</a>
+            <div class="book-links">
+              <a href="https://opac.exchange.isb.edu:7878/lib/item?id=chamo:118268&fromLocationLink=false&theme=isb" class="book-link book-opac-link" target="_blank">OPAC</a>
+              <a href="https://www.amazon.in/s?k=Agents+of+Change+Sanderijn+Cels" class="book-link book-amazon-link" target="_blank">Amazon</a>
+            </div>
           </div>
         </div>
       </div>
