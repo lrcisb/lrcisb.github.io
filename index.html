@@ -607,15 +607,9 @@ function renderCampus(campus, data) {
     monthsBox.appendChild(section);
   });
 
-  tabs.querySelectorAll('.tab-button').forEach(button => {
-    button.addEventListener('click', () => {
-      tabs.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-      monthsBox.querySelectorAll('.month-section').forEach(section => section.classList.remove('active'));
-      button.classList.add('active');
-      const target = monthsBox.querySelector(`#${button.dataset.tab}`);
-      if (target) target.classList.add('active');
-    });
-  });
+  // Month-tab clicks are handled by the delegated listener below.
+  // This works for both the catalogue already embedded in this HTML file
+  // and any tabs created later after loading a new Excel workbook.
 }
 
 function renderWorkbook(workbook) {
@@ -642,6 +636,39 @@ document.getElementById('excel-file').addEventListener('change', async event => 
   if (!file) return;
   document.getElementById('load-status').textContent = `Loading ${file.name}…`;
   await loadArrayBuffer(await file.arrayBuffer());
+});
+
+// Handle month tabs for the catalogue already embedded in this one-file page,
+// as well as tabs created dynamically from an Excel workbook.
+document.addEventListener('click', event => {
+  const button = event.target.closest('.tab-button[data-tab]');
+  if (!button) return;
+
+  const campusSection = button.closest('.campus-section');
+  if (!campusSection) return;
+
+  const targetId = button.dataset.tab;
+  const target = document.getElementById(targetId);
+  if (!target || !campusSection.contains(target)) return;
+
+  campusSection.querySelectorAll('.tab-button[data-tab]').forEach(btn => btn.classList.remove('active'));
+  campusSection.querySelectorAll('.month-section').forEach(section => section.classList.remove('active'));
+
+  button.classList.add('active');
+  target.classList.add('active');
+
+  // Keep the selected month tab visible when the tab row is wider than the screen.
+  button.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'center'});
+});
+
+// Allow a mouse wheel/trackpad to move a long month-tab row horizontally.
+document.querySelectorAll('.tab-container').forEach(tabContainer => {
+  tabContainer.addEventListener('wheel', event => {
+    if (Math.abs(event.deltaY) > Math.abs(event.deltaX) && tabContainer.scrollWidth > tabContainer.clientWidth) {
+      tabContainer.scrollLeft += event.deltaY;
+      event.preventDefault();
+    }
+  }, {passive: false});
 });
 
 document.querySelectorAll('.campus-button').forEach(button => {
